@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça o portfólio de Felipe Alves, estudante de programação.">
+    <title>Felipe Alves | Portfólio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="pagina-portifolio">
+    <header class="cabecalho">
+        <nav class="navegacao" aria-label="Navegação principal">
+            <a class="marca" href="index.html">Felipe<span>.</span></a>
+            <ul>
+                <li><a href="index.html" aria-current="page">Início</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="apresentacao" aria-labelledby="titulo-principal">
+            <p class="etiqueta" data-reveal>Estudante de programação</p>
+            <h1 id="titulo-principal" data-reveal>Olá, eu sou <span>Felipe Alves.</span></h1>
+            <p class="texto-destaque" data-reveal>Estou aprendendo a transformar ideias em experiências digitais com HTML, CSS e JavaScript.</p>
+            <a class="botao" href="projetos.html">Conheça meus projetos <span aria-hidden="true">→</span></a>
+            <div class="detalhe-apresentacao" aria-hidden="true">&lt;/&gt;</div>
+        </section>
+
+        <section class="sobre" aria-labelledby="titulo-sobre">
+            <p class="etiqueta" data-reveal>Um pouco sobre mim</p>
+            <h2 id="titulo-sobre" data-reveal>Aprender criando.</h2>
+            <p data-reveal>Sou estudante de programação e estou em busca de oportunidades para aplicar meus conhecimentos e crescer profissionalmente. Acredito que a prática é fundamental para desenvolver habilidades, por isso estou sempre explorando novos desafios e aprendizados.</p>
+            <p data-reveal>Meus principais interesses são desenvolvimento web, inteligência artificial e ciência de dados. Quero contribuir com projetos inovadores e fazer parte de equipes que valorizam a criatividade, a colaboração e o aprendizado contínuo.</p>
+        </section>
+
+        <section class="conhecimentos" aria-labelledby="titulo-conhecimentos">
+            <p class="etiqueta" data-reveal>O que venho aprendendo</p>
+            <h2 id="titulo-conhecimentos" data-reveal>Meus conhecimentos</h2>
+            <div class="conhecimentos-grade">
+                <article class="cartao-conhecimento" data-reveal>
+                    <img class="icone-tecnologia" src="assets/html 2.png" alt="Logo do HTML">
+                    <h3>HTML</h3>
+                    <p>Estrutura de páginas web</p>
+                </article>
+                <article class="cartao-conhecimento" data-reveal>
+                    <img class="icone-tecnologia" src="assets/css 2.png" alt="Logo do CSS">
+                    <h3>CSS</h3>
+                    <p>Estilização e layout</p>
+                </article>
+                <article class="cartao-conhecimento" data-reveal>
+                    <img class="icone-tecnologia" src="assets/js.png" alt="Logo do JavaScript">
+                    <h3>JavaScript</h3>
+                    <p>Interatividade para páginas</p>
+                </article>
+                <article class="cartao-conhecimento" data-reveal>
+                    <img class="icone-tecnologia" src="assets/python.webp" alt="Logo do Python">
+                    <h3>Python</h3>
+                    <p>Lógica de programação</p>
+                </article>
+                <article class="cartao-conhecimento" data-reveal>
+                    <img class="icone-tecnologia" src="assets/sql.jpg" alt="Ícone de banco de dados SQL">
+                    <h3>SQL</h3>
+                    <p><span class="status-aprendizado">Em andamento</span></p>
+                </article>
+            </div>
+        </section>
+
+        <section class="formacao" aria-labelledby="titulo-formacao">
+            <p class="etiqueta" data-reveal>Minha trajetória</p>
+            <h2 id="titulo-formacao" data-reveal>Cursos e formação</h2>
+            <div class="formacao-grade">
+                <article class="cartao-formacao" data-reveal>
+                    <h3>Cursos em andamento</h3>
+                    <p>Estou estudando e ampliando meus conhecimentos por meio de cursos no:</p>
+                    <ul class="lista-cursos">
+                        <li class="instituicao-curso">
+                            <span class="moldura-logo logo-unime">
+                                <img src="assets/unime.png" alt="Logo da UNIME">
+                            </span>
+                            <span class="detalhe-curso"><strong>UNIME</strong><small>Concluído · 11/02/2024 a 07/05/2024</small></span>
+                            <span class="progresso-curso" role="img" aria-label="Progresso na UNIME: 100 por cento, curso concluído">
+                                <span class="progresso-circulo progresso-circulo--completo">100%</span>
+                                <small>Concluído</small>
+                            </span>
+                        </li>
+                        <li class="instituicao-curso">
+                            <span class="moldura-logo logo-senai">
+                                <img src="assets/senai.png" alt="Logo do SENAI">
+                            </span>
+                            <span class="detalhe-curso"><strong>SENAI</strong><small>Curso em andamento</small></span>
+                            <span class="progresso-curso" role="img" aria-label="Progresso no SENAI: 50 por cento, segundo de quatro semestres">
+                                <span class="progresso-circulo">50%</span>
+                                <small>2º de 4º semestres</small>
+                            </span>
+                        </li>
+                    </ul>
+                </article>
+                <article class="cartao-formacao cartao-diploma" data-reveal>
+                    <h3>Diploma</h3>
+                    <p>Análise e Desenvolvimento de Sistemas</p>
+                    <object class="visualizador-diploma" data="assets/diploma.pdf" type="application/pdf" aria-label="Prévia do diploma de Análise e Desenvolvimento de Sistemas">
+                        <p>Não foi possível exibir o diploma aqui. <a href="assets/diploma.pdf" target="_blank" rel="noopener noreferrer">Abrir ou baixar o PDF</a>.</p>
+                    </object>
+                    <a class="link-diploma" href="assets/diploma.pdf" target="_blank" rel="noopener noreferrer">Ver diploma em outra aba</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <p>Feito por Felipe Alves · Em constante aprendizado</p>
+    </footer>
+    <script src="reveal.js" defer></script>
+</body>
+</html>

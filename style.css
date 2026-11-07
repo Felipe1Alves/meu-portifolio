@@ -1,0 +1,584 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+:root {
+    color-scheme: dark;
+    --fundo: #10131b;
+    --superficie: #171b26;
+    --texto: #f3f5fa;
+    --texto-suave: #a7afc0;
+    --destaque: #8b7bff;
+    --destaque-claro: #b6adff;
+    --borda: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+}
+
+.cabecalho {
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    border-bottom: 1px solid var(--borda);
+    background: rgba(16, 19, 27, 0.88);
+    backdrop-filter: blur(14px);
+    transition: background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.navegacao {
+    width: min(1120px, calc(100% - 48px));
+    min-height: 76px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.marca {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.marca span {
+    color: var(--destaque-claro);
+}
+
+.navegacao ul {
+    display: flex;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navegacao li a {
+    display: inline-block;
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 100ms ease, transform 100ms ease;
+}
+
+.navegacao li a:hover,
+.navegacao li a:focus-visible,
+.navegacao li a[aria-current="page"] {
+    color: var(--texto);
+}
+
+.navegacao li a:active {
+    transform: scale(0.96);
+}
+
+.navegacao a:focus-visible {
+    outline: 2px solid var(--destaque-claro);
+    outline-offset: 5px;
+    border-radius: 3px;
+}
+
+[data-reveal] {
+    opacity: 1;
+    transform: none;
+}
+
+body.revelacao-habilitada [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 480ms ease, transform 480ms ease;
+}
+
+body.revelacao-habilitada [data-reveal].revelacao-visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.apresentacao,
+.sobre,
+.conhecimentos,
+.formacao {
+    width: min(900px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+.apresentacao {
+    position: relative;
+    min-height: 510px;
+    padding: 112px 0 96px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.apresentacao::before {
+    position: absolute;
+    z-index: -1;
+    top: 40px;
+    right: -100px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: rgba(139, 123, 255, 0.16);
+    content: "";
+    filter: blur(90px);
+}
+
+.etiqueta {
+    margin: 0 0 12px;
+    color: var(--destaque-claro);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.apresentacao h1,
+.sobre h2,
+.projetos-container h1 {
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+    line-height: 1.15;
+}
+
+.apresentacao h1 {
+    max-width: 720px;
+    font-size: clamp(2.7rem, 8vw, 5.3rem);
+    letter-spacing: -0.055em;
+}
+
+.apresentacao h1 span {
+    color: var(--destaque-claro);
+}
+
+.texto-destaque {
+    max-width: 620px;
+    margin: 22px 0 30px;
+    color: var(--texto-suave);
+    font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+}
+
+.botao {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 19px;
+    border: 1px solid var(--destaque);
+    border-radius: 8px;
+    background: var(--destaque);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 180ms ease, transform 180ms ease;
+}
+
+.botao:hover {
+    transform: translateY(-2px);
+    background: #7564f0;
+}
+
+.botao:focus-visible,
+.navegacao a:focus-visible {
+    outline: 3px solid var(--destaque-claro);
+    outline-offset: 4px;
+}
+
+.detalhe-apresentacao {
+    position: absolute;
+    right: 4%;
+    bottom: 60px;
+    color: rgba(182, 173, 255, 0.13);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(5rem, 16vw, 12rem);
+    font-weight: 700;
+    letter-spacing: -0.1em;
+    pointer-events: none;
+}
+
+.sobre {
+    max-width: 900px;
+    margin-bottom: 100px;
+    padding: 40px;
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    background: var(--superficie);
+}
+
+.sobre h2 {
+    margin-bottom: 20px;
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: -0.04em;
+}
+
+.sobre > p:not(.etiqueta) {
+    max-width: 740px;
+    color: var(--texto-suave);
+}
+
+.conhecimentos {
+    margin-bottom: 100px;
+}
+
+.conhecimentos h2 {
+    margin: 0 0 28px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: -0.04em;
+    line-height: 1.15;
+}
+
+.conhecimentos-grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+}
+
+.cartao-conhecimento {
+    min-height: 180px;
+    padding: 22px 18px;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    background: var(--superficie);
+    transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.cartao-conhecimento:hover {
+    transform: translateY(-4px);
+    border-color: rgba(182, 173, 255, 0.5);
+}
+
+.icone-tecnologia {
+    display: block;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 14px;
+    object-fit: contain;
+}
+
+.cartao-conhecimento h3 {
+    margin: 0 0 4px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.05rem;
+}
+
+.cartao-conhecimento p {
+    margin: 0;
+    color: var(--texto-suave);
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+
+.status-aprendizado {
+    display: inline-block;
+    padding: 4px 9px;
+    border: 1px solid rgba(182, 173, 255, 0.3);
+    border-radius: 999px;
+    background: rgba(139, 123, 255, 0.1);
+    color: var(--destaque-claro);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.formacao {
+    margin-bottom: 100px;
+}
+
+.formacao h2 {
+    margin: 0 0 28px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: -0.04em;
+    line-height: 1.15;
+}
+
+.formacao-grade {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.cartao-formacao {
+    padding: 28px;
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    background: var(--superficie);
+}
+
+.cartao-formacao h3 {
+    margin: 0 0 10px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.35rem;
+}
+
+.cartao-formacao > p {
+    margin: 0 0 18px;
+    color: var(--texto-suave);
+}
+
+.lista-cursos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.instituicao-curso {
+    display: flex;
+    min-height: 92px;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 14px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.moldura-logo {
+    display: flex;
+    width: 72px;
+    height: 72px;
+    flex: 0 0 72px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.moldura-logo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.logo-unime img {
+    object-fit: contain;
+}
+
+.logo-senai {
+    width: 112px;
+    flex-basis: 112px;
+}
+
+.logo-senai img {
+    object-fit: cover;
+    object-position: center;
+}
+
+.detalhe-curso {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+}
+
+.detalhe-curso strong {
+    color: var(--texto);
+}
+
+.detalhe-curso small {
+    color: var(--texto-suave);
+    font-size: 0.82rem;
+}
+
+.progresso-curso {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-left: auto;
+    text-align: center;
+}
+
+.progresso-circulo {
+    display: grid;
+    width: 52px;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    background:
+        linear-gradient(var(--superficie), var(--superficie)) padding-box,
+        conic-gradient(var(--destaque-claro) 50%, rgba(255, 255, 255, 0.14) 50%) border-box;
+    color: var(--destaque-claro);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.progresso-circulo--completo {
+    background:
+        linear-gradient(var(--superficie), var(--superficie)) padding-box,
+        conic-gradient(var(--destaque-claro) 100%, rgba(255, 255, 255, 0.14) 100%) border-box;
+}
+
+.progresso-curso small {
+    color: var(--texto-suave);
+    font-size: 0.68rem;
+    line-height: 1.2;
+}
+
+.visualizador-diploma {
+    display: block;
+    width: 100%;
+    height: 280px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: var(--fundo);
+}
+
+.visualizador-diploma p {
+    padding: 16px;
+    color: var(--texto-suave);
+}
+
+.visualizador-diploma a,
+.link-diploma {
+    color: var(--destaque-claro);
+}
+
+.link-diploma {
+    display: inline-block;
+    margin-top: 12px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.link-diploma:hover {
+    text-decoration: underline;
+}
+
+.rodape {
+    padding: 22px 24px;
+    border-top: 1px solid var(--borda);
+    color: var(--texto-suave);
+    font-size: 0.88rem;
+    text-align: center;
+}
+
+.rodape p {
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .navegacao {
+        width: calc(100% - 32px);
+        min-height: 68px;
+    }
+
+    .navegacao ul {
+        gap: 16px;
+    }
+
+    .navegacao li a {
+        font-size: 0.86rem;
+    }
+
+    .apresentacao,
+    .sobre,
+    .conhecimentos,
+    .formacao {
+        width: calc(100% - 32px);
+    }
+
+    .apresentacao {
+        min-height: 440px;
+        padding: 80px 0;
+    }
+
+    .detalhe-apresentacao {
+        right: 8px;
+        bottom: 24px;
+        font-size: 5rem;
+    }
+
+    .sobre {
+        margin-bottom: 64px;
+        padding: 26px 22px;
+    }
+
+    .conhecimentos {
+        margin-bottom: 64px;
+    }
+
+    .conhecimentos-grade {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cartao-conhecimento {
+        min-height: 160px;
+    }
+
+    .formacao {
+        margin-bottom: 64px;
+    }
+
+    .formacao-grade {
+        grid-template-columns: 1fr;
+    }
+
+    .cartao-formacao {
+        padding: 24px 20px;
+    }
+
+    .instituicao-curso {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .logo-senai {
+        width: 84px;
+        flex-basis: 84px;
+    }
+
+    .progresso-circulo {
+        width: 44px;
+    }
+
+    .progresso-curso small {
+        max-width: 62px;
+    }
+}
+
+@media (max-width: 360px) {
+    .conhecimentos-grade {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+
+    body.revelacao-habilitada [data-reveal] {
+        opacity: 1;
+        transform: none;
+    }
+}
