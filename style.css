@@ -2,7 +2,7 @@
 
 :root {
     color-scheme: dark;
-    --fundo: #10131b;
+    --fundo: #0b1120;
     --superficie: #171b26;
     --texto: #f3f5fa;
     --texto-suave: #a7afc0;
@@ -23,7 +23,10 @@ html {
 body {
     min-width: 320px;
     margin: 0;
-    background: var(--fundo);
+    background:
+        radial-gradient(ellipse at 15% 10%, rgba(59, 130, 246, 0.1), transparent 38%),
+        radial-gradient(ellipse at 85% 35%, rgba(139, 123, 255, 0.08), transparent 35%),
+        var(--fundo);
     color: var(--texto);
     font-family: "DM Sans", sans-serif;
     line-height: 1.7;
@@ -37,9 +40,9 @@ a {
     position: sticky;
     z-index: 10;
     top: 0;
-    border-bottom: 1px solid var(--borda);
-    background: rgba(16, 19, 27, 0.88);
-    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(16, 19, 27, 0.76));
+    backdrop-filter: blur(24px) saturate(180%);
     transition: background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
 
@@ -53,35 +56,75 @@ a {
 }
 
 .marca {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    gap: 2px;
     font-family: "Space Grotesk", sans-serif;
     font-size: 1.45rem;
     font-weight: 700;
+    line-height: 1.05;
     text-decoration: none;
 }
 
-.marca span {
+.marca-nome {
+    white-space: nowrap;
+}
+
+.marca-nome > span {
     color: var(--destaque-claro);
+}
+
+.marca-idade,
+.marca-profissao {
+    color: var(--texto-suave);
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: normal;
+}
+
+.marca-profissao {
+    line-height: 1.2;
 }
 
 .navegacao ul {
     display: flex;
-    gap: 32px;
+    align-items: center;
+    gap: 4px;
     margin: 0;
-    padding: 0;
+    padding: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035) 48%, rgba(139, 123, 255, 0.08));
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.22), inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px) saturate(190%);
     list-style: none;
 }
 
 .navegacao li a {
-    display: inline-block;
+    display: block;
+    padding: 8px 13px;
+    border: 1px solid transparent;
+    border-radius: 999px;
     color: var(--texto-suave);
     font-size: 0.95rem;
     text-decoration: none;
-    transition: color 100ms ease, transform 100ms ease;
+    transition: color 160ms ease, background 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
 .navegacao li a:hover,
-.navegacao li a:focus-visible,
+.navegacao li a:focus-visible {
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--texto);
+    transform: translateY(-3px) scale(1.04);
+}
+
 .navegacao li a[aria-current="page"] {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.07) 58%, rgba(182, 173, 255, 0.16));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24), 0 2px 10px rgba(0, 0, 0, 0.12);
     color: var(--texto);
 }
 
@@ -486,12 +529,23 @@ body.revelacao-habilitada [data-reveal].revelacao-visivel {
         min-height: 68px;
     }
 
+    .marca {
+        font-size: 1.2rem;
+    }
+
+    .marca-idade,
+    .marca-profissao {
+        font-size: 0.55rem;
+    }
+
     .navegacao ul {
-        gap: 16px;
+        gap: 2px;
+        padding: 4px;
     }
 
     .navegacao li a {
-        font-size: 0.86rem;
+        padding: 7px 8px;
+        font-size: 0.8rem;
     }
 
     .apresentacao,
@@ -561,6 +615,24 @@ body.revelacao-habilitada [data-reveal].revelacao-visivel {
 }
 
 @media (max-width: 360px) {
+    .navegacao {
+        width: calc(100% - 24px);
+    }
+
+    .marca {
+        font-size: 1.05rem;
+    }
+
+    .marca-idade,
+    .marca-profissao {
+        font-size: 0.5rem;
+    }
+
+    .navegacao li a {
+        padding: 6px;
+        font-size: 0.74rem;
+    }
+
     .conhecimentos-grade {
         grid-template-columns: 1fr;
     }

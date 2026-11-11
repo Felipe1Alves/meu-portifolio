@@ -4,11 +4,12 @@ const prefereMovimentoReduzido = window.matchMedia("(prefers-reduced-motion: red
 if ("IntersectionObserver" in window && !prefereMovimentoReduzido) {
     document.body.classList.add("revelacao-habilitada");
 
-    const observador = new IntersectionObserver((entradas, observer) => {
+    const observador = new IntersectionObserver((entradas) => {
         entradas.forEach((entrada) => {
             if (entrada.isIntersecting) {
                 entrada.target.classList.add("revelacao-visivel");
-                observer.unobserve(entrada.target);
+            } else {
+                entrada.target.classList.remove("revelacao-visivel");
             }
         });
     }, {
